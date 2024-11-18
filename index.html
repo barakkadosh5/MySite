@@ -1,0 +1,186 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default2.aspx.cs" Inherits="Responsive_Default2" %>
+
+<!DOCTYPE html>
+
+<html lang="he">
+<head runat="server">
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <!-- CHANGED -->
+    
+    <title></title>
+     <style>
+        /* הגדרת כיוון כתיבה מימין לשמאל */
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl; /* יישור כל התוכן מימין לשמאל */
+            margin: 0;
+            padding: 0;
+            text-align: right; /* יישור כל התוכן לימין */
+        }
+
+        /* כותרת קבועה למעלה */
+        .top-title {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            z-index: 10; /* מבטיח שהיא תהיה תמיד מעל התוכן */
+        }
+
+        /* תפריט בצד ימין עם גובה מלא */
+        .side-menu {
+            position: fixed;
+            top: 50px; /* מתחיל אחרי הכותרת */
+            right: 0;
+            background-color: #333;
+            color: white;
+            width: 200px;
+           height: calc(100% - 50px); /* CHANGED: Dynamically adjust height */
+        padding: 10px; /* CHANGED: Adjust padding for smaller screens */
+            box-sizing: border-box;
+            z-index: 5;
+            overflow-y: auto; /* מאפשר גלילה בתוך התפריט אם צריך */
+        }
+
+        .side-menu a {
+            display: block;
+            color: white;
+           padding: 8px; /* CHANGED: Adjust padding for smaller screens */
+            text-decoration: none;
+            font-size: 1rem; /* CHANGED: Adjust font size */
+             margin: 5px 0; /* CHANGED: Adjust margin for smaller screens */
+        }
+
+        .side-menu a:hover {
+            background-color: #555;
+        }
+
+        /* סקשנים בדף */
+        section {
+            padding: 60px 10px; /* CHANGED: Adjust padding for smaller screens */
+            margin-right: 220px; /* נותן מקום לתפריט */
+            margin-top: 60px; /* CHANGED: Adjust margin for smaller screens */
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+        }
+
+        /* כותרת סקשן */
+        h1 {
+            font-size: 1.5rem; /* CHANGED: Adjust font size for smaller screens */
+        }
+
+        /* מלל */
+        p {
+            font-size: 0.9rem; /* CHANGED: Adjust font size for smaller screens */
+        margin: 10px 0; /* CHANGED: Adjust margin for smaller screens */
+        }
+
+        /* עיצוב למילת tooltip */
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+        /* בלון הצף */
+        .tooltip::after {
+            content: attr(data-tooltip);  /* מציג את התוכן מתוך ה- data-tooltip */
+            position: absolute;
+            top: 120%;  /* מיקום מעל למילה */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            visibility: hidden;  /* מתחבא בהתחלה */
+            opacity: 0;
+            transition: opacity 0.3s ease;  /* הופעה בצורה חלקה */
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        /* כאשר העכבר על המילה */
+        .tooltip:hover::after {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Responsive design for smartphones */
+         @media screen and (max-width: 768px) { /* CHANGED: Add media query for smaller screens */
+             .side-menu {
+                 width: 150px; /* CHANGED: Adjust menu width */
+             }
+
+                 .side-menu a {
+                     font-size: 0.9rem; /* CHANGED: Reduce font size */
+                 }
+
+             section {
+                 margin-right: 160px; /* CHANGED: Adjust margin to fit smaller menu */
+             }
+         }
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+     <!-- כותרת קבועה למעלה -->
+        <div class="top-title">
+            כותרת ראשית קבועה
+        </div>
+
+        <!-- תפריט בצד ימין -->
+        <div class="side-menu">
+            <a href="#section1">פרשת בראשית</a>
+            <a href="#section2">סקשן 2</a>
+            <a href="#section3">סקשן 3</a>
+        </div>
+
+        <!-- סקשנים -->
+        <section id="section1">
+            <h1>פרשת בראשית</h1>
+            <p>
+                א. שבעה דברים נבראו קודם בריאת העולם ואלו הם: תורה, תשובה, גן עדן, גהינם,
+                כסא הכבוד, בית המקדש ושמו של משיח.
+            </p>
+            <p>
+                ב. 974 דורות לפני בריאת העולם נכתבה התורה אש שחורה על גב י אש לבנה והי ה
+                הקב"ה משתעשע בה עד שברא את העולם.
+            </p>
+            <p>
+                <span class="tooltip" data-tooltip="הבית הזה נבנה בשנת 1984">בית</span> זה נמצא בפתח תקווה.
+            </p>
+        </section>
+
+        <section id="section2">
+            <h1>סקשן 2</h1>
+            <p>מלל בסקשן השני.</p>
+        </section>
+
+        <section id="section3">
+            <h1>סקשן 3</h1>
+            <p>מלל בסקשן השלישי.</p>
+        </section>
+
+        <script>
+            // פונקציה שתבצע גלילה איטית
+            document.querySelectorAll('.side-menu a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth' // הגלילה תהיה חלקה
+                    });
+                });
+            });
+        </script>
+    </div>
+    </form>
+</body>
+</html>
