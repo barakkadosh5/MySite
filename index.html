@@ -106,7 +106,20 @@
             visibility: visible;
             opacity: 1;
         }
-     
+      /* Responsive design for smartphones */
+         @media screen and (max-width: 768px) { /* CHANGED: Add media query for smaller screens */
+             .side-menu {
+                 width: 150px; /* CHANGED: Adjust menu width */
+             }
+
+                 .side-menu a {
+                     font-size: 0.9rem; /* CHANGED: Reduce font size */
+                 }
+
+             section {
+                 margin-right: 160px; /* CHANGED: Adjust margin to fit smaller menu */
+             }
+         }
 
     </style>
 </head>
