@@ -1,1 +1,73 @@
-this is main page
+<html >
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* עיצוב כללי לדף */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #e0f7fa, #80deea);
+}
+ @font-face {
+            font-family: 'StamSefaradCLM'; /* שם הפונט */
+            src: url('Fonts/StamSefaradCLM.ttf') format('truetype'); /* קישור לקובץ הפונט */
+            font-weight: normal; /* משקל רגיל */
+            font-style: normal;  /* סגנון רגיל */
+        }
+
+/* קונטיינר לכפתורים */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* רווח בין הכפתורים */
+}
+
+/* עיצוב לכפתורים */
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    width: 200px; /* רוחב הכפתור */
+    padding: 15px;
+    text-align: center;
+    background-color: #00796b; /* צבע רקע */
+    color: white; /* צבע טקסט */
+    font-family:'StamSefaradCLM';
+    font-size: 22px;
+    border-radius: 8px; /* עיגול פינות */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s; /* אנימציה */
+}
+
+/* אפקט ריחוף על הכפתור */
+.btn:hover {
+    transform: scale(1.05); /* הגדלה */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* צל יותר מודגש */
+}
+
+/* התאמה לטלפונים */
+@media (max-width: 600px) {
+    .btn {
+        width: 80%; /* הכפתור יתפוס 80% מרוחב המסך */
+    }
+}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="button-container">
+          <a href="Bereshit.html" class="btn">בראשית</a>
+        <a href="Shmot.html" class="btn">שמות</a>
+        <a href="Vaikra.html" class="btn">ויקרא</a>
+        <a href="Bamidbar.html" class="btn">במדבר</a>
+        <a href="Dvarim.html" class="btn">דברים</a>
+    </div>
+    </form>
+</body>
+</html>
+
