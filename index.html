@@ -3,105 +3,105 @@
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+ <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      direction: rtl; /* Sets Right-to-Left layout */
-      text-align: right;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            direction: rtl; /* Sets Right-to-Left layout */
+            text-align: right;
+        }
 
-    /* Page Container */
-    .container {
-      width: 90%;
-      margin: 20px auto;
-      text-align: right; /* Align content to the right */
-    }
+        /* Page Container */
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            text-align: right; /* Align content to the right */
+        }
 
-    /* Buttons */
-    .button-row {
-      display: flex;
-      justify-content: right;
-      gap: 10px;
-      margin: 10px 0;
-      flex-wrap: wrap; /* Wraps buttons on smaller screens */
-    }
+        /* Buttons styled as links */
+        .button-row {
+            display: flex;
+            justify-content: right;
+            gap: 10px;
+            margin: 10px 0;
+            flex-wrap: wrap; /* Wraps buttons on smaller screens */
+        }
 
-    .button-row button {
-      flex: 1 1 18%; /* Ensures 5 buttons per row */
-      padding: 15px;
-      border: none;
-      background-color: #0078D7;
-      color: white;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-      text-align: center; /* Center text in buttons */
-    }
+        .button-row a {
+            flex: 1 1 18%; /* Ensures 5 buttons per row */
+            padding: 15px;
+            text-decoration: none;
+            background-color: #0078D7;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            transition: background 0.3s;
+        }
 
-    .button-row button:hover {
-      background-color: #005cbf;
-    }
+        .button-row a:hover {
+            background-color: #005cbf;
+        }
 
-    /* H2 Styling */
-    h2 {
-      font-size: 24px;
-      color: #0078D7;
-      margin: 20px 0;
-      text-align: right; /* Align to the right */
-    }
+        /* H2 Styling */
+        h2 {
+            font-size: 24px;
+            color: #0078D7;
+            margin: 20px 0;
+            text-align: right; /* Align to the right */
+        }
 
-    /* Scrolling News Panel */
-    .news-panel {
-      width: 100%;
-      overflow: hidden;
-      background-color: #333;
-      color: #fff;
-      margin-top: 20px;
-      position: relative;
-      padding: 10px 0;
-    }
+        /* Scrolling News Panel */
+        .news-panel {
+            width: 100%;
+            overflow: hidden;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+            position: relative;
+            padding: 10px 0;
+        }
 
-    .news-content {
-      display: inline-block;
-      white-space: nowrap;
-      animation: scroll 15s linear infinite;
-      font-size: 18px;
-    }
+        .news-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 15s linear infinite;
+            font-size: 18px;
+        }
 
-    @keyframes scroll {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(-250%);
-      }
-    }
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-250%);
+            }
+        }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .button-row button {
-        flex: 1 1 40%; /* Smaller buttons for phones, 2 per row */
-      }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .button-row a {
+                flex: 1 1 40%; /* Smaller buttons for phones, 2 per row */
+            }
 
-      .news-content {
-        font-size: 14px;
-      }
+            .news-content {
+                font-size: 14px;
+            }
 
-      h2 {
-        font-size: 20px; /* Smaller heading for mobile */
-      }
-    }
-  </style>
+            h2 {
+                font-size: 20px; /* Smaller heading for mobile */
+            }
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -110,11 +110,11 @@
         <h2>המאיר לפרשה</h2>
     <!-- Buttons Row 1 -->
     <div class="button-row">
-      <button onclick="location.href='Bereshit.html'">בראשית</button>
-      <button onclick="location.href='Shmot.html'">שמות</button>
-      <button onclick="location.href='Vaikra.html'">ויקרא</button>
-      <button onclick="location.href='Bamidbar.html'">במדבר</button>
-      <button onclick="location.href='Dvarim.html'">דברים</button>
+     <a href="Bereshit.html">בראשית</a>
+                <a href="Shmot.html">שמות</a>
+                <a href="Vaikra.html">ויקרא</a>
+                <a href="Bamidbar.html">במדבר</a>
+                <a href="Dvarim.html">דברים</a>
     </div>
 
     <!-- Title Between Buttons -->
@@ -122,11 +122,11 @@
 
     <!-- Buttons Row 2 -->
     <div class="button-row">
-      <button onclick="location.href='BereshitS.html'">בראשית</button>
-      <button onclick="location.href='ShmotS.html'">שמות</button>
-      <button onclick="location.href='VaikraS.html'">ויקרא</button>
-      <button onclick="location.href='BamidbarS.html'">במדבר</button>
-      <button onclick="location.href='DvarimS.html'">דברים</button>
+      <a href="BereshitS.html">בראשית</a>
+                <a href="ShmotS.html">שמות</a>
+                <a href="VaikraS.html">ויקרא</a>
+                <a href="BamidbarS.html">במדבר</a>
+                <a href="DvarimS.html">דברים</a>
     </div>
 
     <!-- News Panel -->
