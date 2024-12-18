@@ -1,71 +1,140 @@
-<html lang="he">
+<html lang="en">
 <head runat="server">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <style>
-        /* עיצוב כללי לדף */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #e0f7fa, #80deea);
-}
- @font-face {
-            font-family: 'StamSefaradCLM'; /* שם הפונט */
-            src: url('Fonts/StamSefaradCLM.ttf') format('truetype'); /* קישור לקובץ הפונט */
-            font-weight: normal; /* משקל רגיל */
-            font-style: normal;  /* סגנון רגיל */
-        }
-
-/* קונטיינר לכפתורים */
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* רווח בין הכפתורים */
-}
-
-/* עיצוב לכפתורים */
-.btn {
-    text-decoration: none;
-    display: inline-block;
-    width: 200px; /* רוחב הכפתור */
-    padding: 15px;
-    text-align: center;
-    background-color: #00796b; /* צבע רקע */
-    color: white; /* צבע טקסט */
-    font-family:'StamSefaradCLM';
-    font-size: 22px;
-    border-radius: 8px; /* עיגול פינות */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s, box-shadow 0.2s; /* אנימציה */
-}
-
-/* אפקט ריחוף על הכפתור */
-.btn:hover {
-    transform: scale(1.05); /* הגדלה */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* צל יותר מודגש */
-}
-
-/* התאמה לטלפונים */
-@media (max-width: 600px) {
-    .btn {
-        width: 80%; /* הכפתור יתפוס 80% מרוחב המסך */
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-}
-    </style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      direction: rtl; /* Sets Right-to-Left layout */
+      text-align: right;
+    }
+
+    /* Page Container */
+    .container {
+      width: 90%;
+      margin: 20px auto;
+      text-align: right; /* Align content to the right */
+    }
+
+    /* Buttons */
+    .button-row {
+      display: flex;
+      justify-content: right;
+      gap: 10px;
+      margin: 10px 0;
+      flex-wrap: wrap; /* Wraps buttons on smaller screens */
+    }
+
+    .button-row button {
+      flex: 1 1 18%; /* Ensures 5 buttons per row */
+      padding: 15px;
+      border: none;
+      background-color: #0078D7;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-align: center; /* Center text in buttons */
+    }
+
+    .button-row button:hover {
+      background-color: #005cbf;
+    }
+
+    /* H2 Styling */
+    h2 {
+      font-size: 24px;
+      color: #0078D7;
+      margin: 20px 0;
+      text-align: right; /* Align to the right */
+    }
+
+    /* Scrolling News Panel */
+    .news-panel {
+      width: 100%;
+      overflow: hidden;
+      background-color: #333;
+      color: #fff;
+      margin-top: 20px;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .news-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll 15s linear infinite;
+      font-size: 18px;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-250%);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .button-row button {
+        flex: 1 1 40%; /* Smaller buttons for phones, 2 per row */
+      }
+
+      .news-content {
+        font-size: 14px;
+      }
+
+      h2 {
+        font-size: 20px; /* Smaller heading for mobile */
+      }
+    }
+  </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="button-container">
-          <a href="Bereshit.html" class="btn">בראשית</a>
-        <a href="Shmot.html" class="btn">שמות</a>
-        <a href="Vaikra.html" class="btn">ויקרא</a>
-        <a href="Bamidbar.html" class="btn">במדבר</a>
-        <a href="Dvarim.html" class="btn">דברים</a>
+    <div class="container">
+
+        <h2>המאיר לפרשה</h2>
+    <!-- Buttons Row 1 -->
+    <div class="button-row">
+      <button onclick="location.href='Bereshit.html'">בראשית</button>
+      <button onclick="location.href='Shmot.html'">שמות</button>
+      <button onclick="location.href='Vaikra.html'">ויקרא</button>
+      <button onclick="location.href='Bamidbar.html'">במדבר</button>
+      <button onclick="location.href='Dvarim.html'">דברים</button>
+    </div>
+
+    <!-- Title Between Buttons -->
+    <h2>נושאי הפרשה</h2>
+
+    <!-- Buttons Row 2 -->
+    <div class="button-row">
+      <button onclick="location.href='BereshitS.html'">בראשית</button>
+      <button onclick="location.href='ShmotS.html'">שמות</button>
+      <button onclick="location.href='VaikraS.html'">ויקרא</button>
+      <button onclick="location.href='BamidbarS.html'">במדבר</button>
+      <button onclick="location.href='DvarimS.html'">דברים</button>
+    </div>
+
+    <!-- News Panel -->
+    <div class="news-panel">
+      <div class="news-content">
+        🔔 אתר זה לעילוי נשמת אברהם קדוש בן עליה וזוהרה קדוש בת מסעודה  |
+      </div>
+    </div>
     </div>
     </form>
 </body>
