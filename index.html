@@ -1,1 +1,227 @@
 
+<html lang="en">
+<head id="Head1" runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            direction: rtl; /* Sets Right-to-Left layout */
+            text-align: right;
+        }
+
+        /* Page Container */
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            text-align: right; /* Align content to the right */
+        }
+
+        /* Buttons styled as links */
+        .button-row {
+            display: flex;
+            justify-content: right;
+            gap: 10px;
+            margin: 10px 0;
+            flex-wrap: wrap; /* Wraps buttons on smaller screens */
+        }
+
+        .button-row a {
+            flex: 1 1 18%; /* Ensures 5 buttons per row */
+            padding: 15px;
+            text-decoration: none;
+            background-color: #0078D7;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .button-row a:hover {
+            background-color: #005cbf;
+        }
+
+        /* H2 Styling */
+        h2 {
+            font-size: 24px;
+            color: #0078D7;
+            margin: 20px 0;
+            text-align: right; /* Align to the right */
+        }
+
+        /* General Styles for News Panel */
+        .news-panel {
+            width: 100%;
+            overflow: hidden;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .news-content {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 18px;
+        }
+
+        /* Slow Animation for Weekly Message */
+        .slow-banner .news-content {
+            animation: scrollSlow 30s linear infinite; /* Slower animation */
+        }
+
+        @keyframes scrollSlow {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-900%);
+            }
+        }
+
+        /* Fast Animation for Regular Banner */
+        .fast-banner .news-content {
+            animation: scrollFast 15s linear infinite; /* Faster animation */
+        }
+
+        @keyframes scrollFast {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-250%);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .button-row a {
+                flex: 1 1 40%; /* Smaller buttons for phones, 2 per row */
+            }
+
+            .news-content {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 20px; /* Smaller heading for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <h2>קריאה והאזנה לפרשות התורה</h2>
+            <div class="button-row">
+                <a href="BereshitRL.html">בראשית</a>
+                <a href="ShmotRL.html">שמות</a>
+                <a href="VaikraRL.html">ויקרא</a>
+                <a href="BamidbarRL.html">במדבר</a>
+                <a href="DvarimRL.html">דברים</a>
+            </div>
+
+            <div class="news-panel slow-banner">
+                <div class="news-content">
+                    🔔 <span id="weeklyMessage"></span> |
+                </div>
+            </div>
+
+            <h2>נושאי הפרשה</h2>
+            <div class="button-row">
+                <a href="BereshitS.html">בראשית</a>
+                <a href="ShmotS.html">שמות</a>
+                <a href="VaikraS.html">ויקרא</a>
+                <a href="BamidbarS.html">במדבר</a>
+                <a href="DvarimS.html">דברים</a>
+            </div>
+
+            <h2> המאיר לפרשה</h2>
+            <div class="button-row">
+                <a href="Bereshit.html">בראשית</a>
+                <a href="Shmot.html">שמות</a>
+                <a href="Vaikra.html">ויקרא</a>
+                <a href="Bamidbar.html">במדבר</a>
+                <a href="Dvarim.html">דברים</a>
+            </div>
+
+            <h2> שיעורי וידאו לפרשות מאת הרב זמיר כהן</h2>
+            <div class="button-row">
+                <a href="BereshitVideo.html">בראשית</a>
+                <a href="Shmot.html">שמות</a>
+                <a href="Vaikra.html">ויקרא</a>
+                <a href="Bamidbar.html">במדבר</a>
+                <a href="Dvarim.html">דברים</a>
+            </div>
+            <div class="button-row">
+                <a href="Lessons.html">שיעורים</a>
+            </div>
+
+            <div class="news-panel fast-banner">
+                <div class="news-content">
+                    🔔 אתר זה לעילוי נשמת אברהם קדוש בן עליה וזוהרה קדוש בת מסעודה |
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        // Array of weekly messages
+        const weeklyMessages = [
+            "פרשת השבוע בראשית",
+            "פרשת השבוע ויחי",
+            "פרשת השבוע שמות",
+            "פרשת השבוע וארא",
+            "פרשת השבוע בא",
+            "פרשת השבוע בשלח",
+            "פרשת השבוע יתרו",
+            "פרשת השבוע משפטים",
+            "פרשת השבוע תרומה",
+            "פרשת השבוע תצוה",
+            "פרשת השבוע כי תשא",
+            "פרשת השבוע ויקהל",
+            "פרשת השבוע פקודי",
+            "פרשת השבוע ויקרא",
+            "פרשת השבוע צו",
+            "פרשת השבוע שביעי של פסח",
+            "פרשת השבוע שמיני",
+            "פרשת השבוע תזריע מצורע",
+            "פרשת השבוע אחרי מות קדושים",
+            "פרשת השבוע אמור",
+            "פרשת השבוע בהר בחוקותי",
+            "פרשת השבוע במדבר",
+            "פרשת השבוע נשא",
+            // Add more weekly messages for the entire year
+        ];
+
+        // Function to get the current week number of the year
+        function getCurrentWeekNumber() {
+            const now = new Date();
+            const startOfYear = new Date(now.getFullYear(), 0, 1);
+            const pastDaysOfYear = (now - startOfYear) / 86400000;
+            return Math.ceil((pastDaysOfYear + startOfYear.getDay() + 1) / 7);
+        }
+
+        // Get the current week number
+        const currentWeek = getCurrentWeekNumber();
+
+        // Select the message for the current week
+        const message = weeklyMessages[(currentWeek - 1) % weeklyMessages.length];
+
+        // Set the banner text
+        document.getElementById('weeklyMessage').innerText = message;
+    </script>
+</body>
+</html>
